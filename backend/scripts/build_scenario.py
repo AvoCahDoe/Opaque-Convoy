@@ -209,16 +209,22 @@ def _add_seed_routes(graph_json: dict, scenario: dict) -> dict:
 
     leaky = {cargo["id"]: list(spine)}
     for d in decoys:
-        # prefer paths that avoid checkpoints
+        # prefer paths that avoid checkpoints (bounded k-shortest)
         try:
-            paths_k = list(nx.shortest_simple_paths(g, d["start"], d["goal"], weight="length"))
+            paths_k = []
+            for i, c in enumerate(
+                nx.shortest_simple_paths(g, d["start"], d["goal"], weight="length")
+            ):
+                paths_k.append(c)
+                if i >= 11:
+                    break
             chosen = paths_k[0]
-            for c in paths_k[:12]:
+            for c in paths_k:
                 if not any(n in cps for n in c):
                     chosen = c
                     break
             else:
-                chosen = min(paths_k[:12], key=lambda c: sum(1 for n in c if n in cps))
+                chosen = min(paths_k, key=lambda c: sum(1 for n in c if n in cps))
         except Exception:
             chosen = nx.shortest_path(g, d["start"], d["goal"], weight="length")
         leaky[d["id"]] = chosen

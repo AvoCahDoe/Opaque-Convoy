@@ -4,7 +4,7 @@ services:
     runtime: python
     plan: free
     rootDir: .
-    buildCommand: pip install -r backend/requirements.txt && python backend/scripts/write_toy_scenario.py && python backend/scripts/build_scenario.py --no-osm
+    buildCommand: pip install -r backend/requirements.txt && PYTHONPATH=. python backend/scripts/write_toy_scenario.py && PYTHONPATH=. python backend/scripts/build_scenario.py --no-osm
     startCommand: PYTHONPATH=. uvicorn backend.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
