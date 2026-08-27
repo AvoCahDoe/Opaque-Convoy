@@ -1,0 +1,40 @@
+{
+  "name": "opaque-convoy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Provably secure multi-agent convoy routing with Type-A/B opacity guarantees (arXiv:2605.13134)",
+  "author": {
+    "name": "Farid El Boubkraoui",
+    "email": "farid.elboubkraoui@w-ays.de",
+    "url": "https://github.com/AvoCahDoe"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AvoCahDoe/Opaque-Convoy.git"
+  },
+  "homepage": "https://github.com/AvoCahDoe/Opaque-Convoy",
+  "bugs": {
+    "url": "https://github.com/AvoCahDoe/Opaque-Convoy/issues"
+  },
+  "keywords": [
+    "opacity",
+    "multi-agent",
+    "LTL",
+    "route-planning",
+    "cash-in-transit",
+    "security-aware-planning",
+    "langgraph",
+    "fastapi",
+    "react-leaflet"
+  ],
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "backend": "PYTHONPATH=. uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload",
+    "frontend": "npm --prefix frontend run dev",
+    "test": "PYTHONPATH=. pytest backend/tests -q",
+    "build:scenarios": "python backend/scripts/write_toy_scenario.py && python backend/scripts/build_scenario.py --no-osm"
+  }
+}

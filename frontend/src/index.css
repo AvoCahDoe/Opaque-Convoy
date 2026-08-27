@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  --asphalt: #1a1f26;
+  --steel: #8b9aab;
+  --fog: #c5d0dc;
+  --signal: #e8a54b;
+  --cargo: #d94f3d;
+  --decoy: #4a8fb8;
+  --panel: rgba(18, 22, 28, 0.88);
+  --ink: #eef2f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  background: var(--asphalt);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.font-display {
+  font-family: "Instrument Serif", Georgia, serif;
+}
+
+.leaflet-container {
+  background: #2a313a;
+  font-family: inherit;
+}
+
+.oc-panel {
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 208, 220, 0.12);
+}
+
+.oc-btn {
+  border: 1px solid rgba(197, 208, 220, 0.25);
+  background: transparent;
+  color: var(--ink);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.oc-btn:hover {
+  background: rgba(232, 165, 75, 0.15);
+  border-color: var(--signal);
+}
+
+.oc-btn.active {
+  background: var(--signal);
+  color: var(--asphalt);
+  border-color: var(--signal);
+}
+
+.oc-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

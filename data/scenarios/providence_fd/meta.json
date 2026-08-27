@@ -1,0 +1,44 @@
+{
+  "id": "providence_fd",
+  "name": "Providence Financial District",
+  "description": "Cash-in-transit demo district near downtown Providence, RI",
+  "center": {
+    "lat": 41.826,
+    "lng": -71.4125
+  },
+  "zoom": 15,
+  "bbox": {
+    "north": 41.8305,
+    "south": 41.8215,
+    "east": -71.407,
+    "west": -71.4185
+  },
+  "source": "synthetic",
+  "long_description": "High-value armored transport with three decoy vans. An external observer sees vehicles only at public camera checkpoints. Type-B secure plans keep the cargo carrier observationally ambiguous at every camera hit.",
+  "city": "Providence",
+  "region": "Rhode Island",
+  "country": "USA",
+  "crs": "WGS84",
+  "n_nodes": 78,
+  "n_edges": 268,
+  "n_checkpoints": 6,
+  "n_vehicles": 4,
+  "security_modes": [
+    "type_b",
+    "type_a",
+    "type_ab"
+  ],
+  "default_security_mode": "type_b",
+  "tags": [
+    "cash-in-transit",
+    "opacity",
+    "multi-agent",
+    "LTL",
+    "OSM-ready"
+  ],
+  "citation": "Mitsos et al., arXiv:2605.13134",
+  "paper_url": "https://arxiv.org/abs/2605.13134",
+  "showcase": true,
+  "default": true,
+  "application": "cash_in_transit"
+}

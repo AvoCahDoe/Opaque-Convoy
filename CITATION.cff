@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: If you use this software, please cite both the software and the underlying paper.
+title: "Opaque Convoy: Provably Secure Route Planning for High-Value Transport"
+authors:
+  - family-names: El Boubkraoui
+    given-names: Farid
+    email: farid.elboubkraoui@w-ays.de
+type: software
+version: 1.0.0
+date-released: "2026-08-27"
+url: "https://github.com/AvoCahDoe/Opaque-Convoy"
+repository-code: "https://github.com/AvoCahDoe/Opaque-Convoy"
+license: MIT
+keywords:
+  - opacity
+  - multi-agent systems
+  - LTL
+  - security-aware planning
+  - cash-in-transit
+references:
+  - type: article
+    title: "Security-Aware Planning and Control of Multi-Agent Systems with LTL Tasks"
+    authors:
+      - family-names: Mitsos
+        given-names: Georgios
+      - family-names: Dimarogonas
+        given-names: Dimos V.
+      - family-names: Liu
+        given-names: Siyuan
+    year: 2026
+    doi: "10.48550/arXiv.2605.13134"
+    url: "https://arxiv.org/abs/2605.13134"
+    identifiers:
+      - type: other
+        value: "arXiv:2605.13134"
+        description: arXiv preprint

@@ -1,0 +1,10 @@
+{
+  "id": "toy",
+  "name": "Toy Grid (3\u00d73)",
+  "description": "Synthetic grid for opacity unit tests and fast demos",
+  "center": {
+    "lat": 41.825,
+    "lng": -71.412
+  },
+  "zoom": 15
+}

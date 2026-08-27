@@ -1,0 +1,87 @@
+{
+  "name": "Toy Grid",
+  "security_mode": "type_b",
+  "cargo_always_secret": true,
+  "checkpoints": [
+    1,
+    4,
+    7
+  ],
+  "secret_nodes": [
+    4
+  ],
+  "k_paths": 8,
+  "max_replan": 20,
+  "vehicles": [
+    {
+      "id": "cargo",
+      "role": "cargo",
+      "start": 0,
+      "goal": 8,
+      "start_label": "depot",
+      "goal_label": "bank"
+    },
+    {
+      "id": "decoy_a",
+      "role": "decoy",
+      "start": 2,
+      "goal": 6,
+      "start_label": "north",
+      "goal_label": "south"
+    },
+    {
+      "id": "decoy_b",
+      "role": "decoy",
+      "start": 6,
+      "goal": 2,
+      "start_label": "south",
+      "goal_label": "north"
+    }
+  ],
+  "seed_opaque": {
+    "cargo": [
+      0,
+      1,
+      4,
+      7,
+      8
+    ],
+    "decoy_a": [
+      2,
+      1,
+      4,
+      7,
+      6
+    ],
+    "decoy_b": [
+      6,
+      7,
+      4,
+      1,
+      2
+    ]
+  },
+  "seed_leaky": {
+    "cargo": [
+      0,
+      3,
+      4,
+      5,
+      8
+    ],
+    "decoy_a": [
+      2,
+      5,
+      8,
+      7,
+      6
+    ],
+    "decoy_b": [
+      6,
+      3,
+      0,
+      1,
+      2
+    ]
+  }
+}
