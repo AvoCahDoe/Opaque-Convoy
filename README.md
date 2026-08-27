@@ -65,12 +65,16 @@ pip install osmnx
 PYTHONPATH=. python backend/scripts/build_scenario.py   # downloads Providence bbox
 ```
 
-## Deploy
+## Live demo
 
-- **Backend (Render):** Blueprint in [render.yaml](render.yaml) — binds `0.0.0.0:$PORT`
-- **Frontend (Vercel):** set `VITE_API_URL` to the Render service URL (`frontend/`)
+| Layer | URL |
+|---|---|
+| Frontend (Vercel) | https://opaque-convoy.vercel.app |
+| Backend API (Render) | https://opaque-convoy.onrender.com |
+| API docs | https://opaque-convoy.onrender.com/docs |
+| Source | https://github.com/AvoCahDoe/Opaque-Convoy |
 
-Optional: `ANTHROPIC_API_KEY` on the backend for LLM explanations.
+> Free Render services spin down after ~15 minutes idle; the first request after sleep can take ~30–60s.
 
 ## Project layout
 
