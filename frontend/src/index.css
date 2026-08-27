@@ -45,6 +45,24 @@ body {
   width: 100%;
 }
 
+/* Dark mode keeps OSM tiles; tile pane only is inverted so overlays stay readable */
+.oc-map-dark.leaflet-container {
+  background: #1a1f26;
+}
+
+.oc-map-dark .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.92) saturate(0.75);
+}
+
+.oc-map-dark .leaflet-control-attribution {
+  background: rgba(18, 22, 28, 0.75) !important;
+  color: #c5d0dc;
+}
+
+.oc-map-dark .leaflet-control-attribution a {
+  color: #9ec3e0;
+}
+
 .oc-nav-link {
   text-decoration: none;
   color: var(--ink-muted);

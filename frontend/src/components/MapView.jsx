@@ -59,6 +59,7 @@ export default function MapView({
   observerMode,
   playTime,
   checkpoints,
+  mapDark = true,
 }) {
   const center = useMemo(() => {
     if (graph?.meta?.center) return [graph.meta.center.lat, graph.meta.center.lng]
@@ -89,11 +90,13 @@ export default function MapView({
       .filter(Boolean)
   }, [graph])
 
+  const edgeColor = mapDark ? '#9aa8b5' : '#7a8794'
+
   return (
     <MapContainer
       center={center}
       zoom={graph?.meta?.zoom || 15}
-      className="h-full w-full"
+      className={`h-full w-full oc-map ${mapDark ? 'oc-map-dark' : 'oc-map-light'}`}
       zoomControl={false}
     >
       <TileLayer
@@ -108,7 +111,7 @@ export default function MapView({
           <Polyline
             key={`e-${i}`}
             positions={latlngs}
-            pathOptions={{ color: '#7a8794', weight: 2, opacity: 0.45 }}
+            pathOptions={{ color: edgeColor, weight: 2, opacity: mapDark ? 0.35 : 0.45 }}
           />
         ))}
 

@@ -10,6 +10,7 @@ const initial = {
   plan: null,
   tradeoff: null,
   observerMode: false,
+  mapDark: true,
   playing: false,
   playTime: 0,
   loading: false,

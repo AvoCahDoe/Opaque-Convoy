@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import MapView from '../components/MapView'
+import MapThemeToggle from '../components/MapThemeToggle'
 import ObserverToggle from '../components/ObserverToggle'
 import PlaybackControls from '../components/PlaybackControls'
 import ScenarioPicker from '../components/ScenarioPicker'
@@ -20,6 +21,7 @@ export default function TryPage() {
           observerMode={state.observerMode}
           playTime={state.playTime}
           checkpoints={checkpoints}
+          mapDark={state.mapDark}
         />
       </div>
 
@@ -29,10 +31,20 @@ export default function TryPage() {
           animate={{ opacity: 1, y: 0 }}
           className="pointer-events-auto"
         >
-          <p className="font-display text-2xl md:text-3xl text-[var(--ink-strong)] drop-shadow-sm m-0">
+          <p
+            className={`font-display text-2xl md:text-3xl m-0 drop-shadow-sm ${
+              state.mapDark ? 'text-[#eef2f6]' : 'text-[var(--ink-strong)]'
+            }`}
+          >
             Simulation
           </p>
-          <p className="mt-1 text-sm text-[var(--ink-muted)] max-w-sm leading-snug bg-[rgba(248,249,250,0.75)] backdrop-blur-sm px-2 py-1 inline-block">
+          <p
+            className={`mt-1 text-sm max-w-sm leading-snug backdrop-blur-sm px-2 py-1 inline-block ${
+              state.mapDark
+                ? 'text-[#c5d0dc] bg-[rgba(18,22,28,0.72)]'
+                : 'text-[var(--ink-muted)] bg-[rgba(248,249,250,0.75)]'
+            }`}
+          >
             Animate cargo + decoys on OpenStreetMap. Toggle Observer to see only camera hits.
           </p>
         </motion.div>
@@ -55,6 +67,11 @@ export default function TryPage() {
           <ObserverToggle
             observerMode={state.observerMode}
             onChange={(v) => dispatch({ type: 'SET', payload: { observerMode: v } })}
+          />
+
+          <MapThemeToggle
+            mapDark={state.mapDark}
+            onChange={(v) => dispatch({ type: 'SET', payload: { mapDark: v } })}
           />
 
           <div className="flex flex-wrap gap-2">
