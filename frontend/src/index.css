@@ -3,13 +3,17 @@
 
 :root {
   --asphalt: #1a1f26;
-  --steel: #8b9aab;
-  --fog: #c5d0dc;
-  --signal: #e8a54b;
-  --cargo: #d94f3d;
-  --decoy: #4a8fb8;
-  --panel: rgba(18, 22, 28, 0.88);
-  --ink: #eef2f6;
+  --steel: #5c6b7a;
+  --steel-ink: #6b7c8d;
+  --fog: #e8eef3;
+  --signal: #c47a1a;
+  --cargo: #c43d2e;
+  --decoy: #2f6f96;
+  --panel: rgba(248, 249, 250, 0.94);
+  --ink: #1a1f26;
+  --ink-strong: #12151a;
+  --ink-muted: #4a5560;
+  --page-bg: #f4f6f8;
 }
 
 * {
@@ -25,7 +29,7 @@ body,
 
 body {
   font-family: "IBM Plex Sans", system-ui, sans-serif;
-  background: var(--asphalt);
+  background: var(--page-bg);
   color: var(--ink);
   overflow: hidden;
 }
@@ -35,40 +39,158 @@ body {
 }
 
 .leaflet-container {
-  background: #2a313a;
+  background: #dce3ea;
   font-family: inherit;
+  height: 100%;
+  width: 100%;
+}
+
+.oc-nav-link {
+  text-decoration: none;
+  color: var(--ink-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.oc-nav-link:hover {
+  color: var(--ink-strong);
+  border-color: rgba(26, 31, 38, 0.15);
+}
+
+.oc-nav-link-active {
+  color: var(--ink-strong);
+  border-color: var(--signal);
+  background: rgba(196, 122, 26, 0.08);
 }
 
 .oc-panel {
   background: var(--panel);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(197, 208, 220, 0.12);
+  border: 1px solid rgba(26, 31, 38, 0.1);
+}
+
+.oc-panel-light {
+  color: var(--ink);
+  box-shadow: 0 8px 28px rgba(18, 22, 28, 0.08);
 }
 
 .oc-btn {
   border: 1px solid rgba(197, 208, 220, 0.25);
   background: transparent;
-  color: var(--ink);
+  color: inherit;
   padding: 0.4rem 0.75rem;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
-.oc-btn:hover {
-  background: rgba(232, 165, 75, 0.15);
+.oc-btn-light {
+  border-color: rgba(26, 31, 38, 0.2);
+  color: var(--ink-strong);
+}
+
+.oc-btn:hover,
+.oc-btn-light:hover {
+  background: rgba(196, 122, 26, 0.12);
   border-color: var(--signal);
 }
 
-.oc-btn.active {
+.oc-btn.active,
+.oc-btn-light.active {
   background: var(--signal);
-  color: var(--asphalt);
+  color: #fff;
   border-color: var(--signal);
 }
 
 .oc-btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+.oc-text-link {
+  color: var(--decoy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.oc-text-link:hover {
+  color: var(--signal);
+}
+
+.page-scroll {
+  height: 100%;
+  overflow: auto;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(196, 122, 26, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(47, 111, 150, 0.07), transparent),
+    var(--page-bg);
+}
+
+.doc-page h2 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin: 0 0 0.75rem;
+  color: var(--ink-strong);
+}
+
+.doc-section {
+  margin-top: 2.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(26, 31, 38, 0.08);
+}
+
+.doc-section p,
+.doc-section li {
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+.doc-section ol {
+  padding-left: 1.25rem;
+  color: var(--ink-muted);
+}
+
+.doc-section blockquote {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--signal);
+  background: rgba(26, 31, 38, 0.03);
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.math {
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui;
+  font-style: italic;
+  color: var(--ink-strong);
+}
+
+.math-block {
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui;
+  font-size: 1.15rem;
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: rgba(26, 31, 38, 0.04);
+  border: 1px solid rgba(26, 31, 38, 0.08);
+  color: var(--ink-strong);
+}
+
+/* Light selects inside panels */
+.oc-panel-light select {
+  color: var(--ink-strong);
+  border-color: rgba(26, 31, 38, 0.2);
+}
+
+.oc-panel-light select option {
+  background: #fff;
+  color: #12151a;
 }

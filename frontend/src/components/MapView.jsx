@@ -97,8 +97,9 @@ export default function MapView({
       zoomControl={false}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
-        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        maxZoom={19}
       />
       <FitBounds bounds={graph?.bounds} />
 
@@ -107,7 +108,7 @@ export default function MapView({
           <Polyline
             key={`e-${i}`}
             positions={latlngs}
-            pathOptions={{ color: '#3a4552', weight: 2, opacity: 0.55 }}
+            pathOptions={{ color: '#7a8794', weight: 2, opacity: 0.45 }}
           />
         ))}
 

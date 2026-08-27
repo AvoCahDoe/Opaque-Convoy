@@ -18,30 +18,43 @@ export default function TradeoffChart({ points }) {
 
   if (!data.length) {
     return (
-      <p className="text-xs text-[var(--steel)]">
+      <p className="text-xs text-[var(--steel-ink)] m-0">
         Run a plan to load the cost–opacity sweep.
       </p>
     )
   }
 
   return (
-    <div className="h-40 w-full">
+    <div className="h-48 w-full">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data} margin={{ top: 8, right: 8, left: -12, bottom: 0 }}>
-          <CartesianGrid stroke="rgba(197,208,220,0.12)" strokeDasharray="3 3" />
+        <LineChart data={data} margin={{ top: 8, right: 12, left: -8, bottom: 4 }}>
+          <CartesianGrid stroke="rgba(26,31,38,0.08)" strokeDasharray="3 3" />
           <XAxis
             dataKey="fraction"
-            tick={{ fill: '#8b9aab', fontSize: 11 }}
-            label={{ value: 'Checkpoint density', position: 'insideBottom', offset: -2, fill: '#8b9aab', fontSize: 10 }}
+            tick={{ fill: '#5c6b7a', fontSize: 11 }}
+            label={{
+              value: 'Checkpoint density',
+              position: 'insideBottom',
+              offset: -2,
+              fill: '#5c6b7a',
+              fontSize: 10,
+            }}
           />
           <YAxis
-            tick={{ fill: '#8b9aab', fontSize: 11 }}
-            label={{ value: 'Extra cost %', angle: -90, position: 'insideLeft', fill: '#8b9aab', fontSize: 10 }}
+            tick={{ fill: '#5c6b7a', fontSize: 11 }}
+            label={{
+              value: 'Extra cost %',
+              angle: -90,
+              position: 'insideLeft',
+              fill: '#5c6b7a',
+              fontSize: 10,
+            }}
           />
           <Tooltip
             contentStyle={{
-              background: '#12161c',
-              border: '1px solid rgba(197,208,220,0.2)',
+              background: '#f8f9fa',
+              border: '1px solid rgba(26,31,38,0.12)',
+              color: '#12151a',
               fontSize: 12,
             }}
             formatter={(value, name) => [
@@ -52,9 +65,9 @@ export default function TradeoffChart({ points }) {
           <Line
             type="monotone"
             dataKey="overhead"
-            stroke="#e8a54b"
+            stroke="#c47a1a"
             strokeWidth={2}
-            dot={{ r: 3, fill: '#e8a54b' }}
+            dot={{ r: 3, fill: '#c47a1a' }}
             connectNulls
           />
         </LineChart>
