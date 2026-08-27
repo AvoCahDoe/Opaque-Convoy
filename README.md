@@ -56,7 +56,15 @@ npm install
 npm run dev
 ```
 
-Open `http://127.0.0.1:5173`. The demo auto-loads an opaque plan; use **Load leaky** / **Plan**, toggle **Observer**, and press **Play**.
+Open `http://127.0.0.1:5173` (redirects to `/try`):
+
+| Route | Purpose |
+|---|---|
+| [`/doc`](https://opaque-convoy.vercel.app/doc) | Math, Type-A/B, planning pipeline |
+| [`/try`](https://opaque-convoy.vercel.app/try) | Live OSM map simulation |
+| [`/results`](https://opaque-convoy.vercel.app/results) | Verdict, costs, trade-off chart |
+
+Map tiles: OpenStreetMap (`tile.openstreetmap.org`) with standard attribution.
 
 ### Optional OSM refresh
 
